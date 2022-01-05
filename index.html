@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--[if IE]>
+    <meta http-equiv="x-ua-compatible" content="IE=9"/>
+    <![endif]-->
+    <title>Tarkov WH</title>
+
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/apple-touch-icon-114x114.png">
+
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+    <script src="assets/js/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="assets/css/dark.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <link rel="stylesheet" href="assets/css/default.css">
+    <link rel="stylesheet" href="assets/css/theme-orange.css">
+    <style>
+        :root {
+            --header-bg-color: #111111;
+            --nav-item-color: #f5f5f5;
+            --top-nav-item-color: #f5f5f5;
+            --hero-bg-color: #111111;
+            --section-1-bg-color: #111111;
+            --footer-bg-color: #191919;
+        }
+    </style>
+</head>
+<body class="theme-mode-dark">
+<section id="contact" class="section-1 form odd">
+    <div class="frameControl"></div>
+    <div class="container">
+        <form action="php/form.php" id="leverage-form" class="multi-step-form">
+            <input type="hidden" name="section" value="leverage_form">
+            <input type="hidden" name="reCAPTCHA">
+            <div class="row">
+                <div class="col-12 col-md-6 align-self-start text-center text-md-left">
+                    <div class="row success message">
+                        <div class="col-12 p-0">
+                            <div class="wait">
+                                <div class="spinner-grow" role="status">
+                                    <span class="sr-only">Loading</span>
+                                </div>
+                                <h3 class="sending">SENDING</h3>
+                            </div>
+                            <div class="done">
+                                <i class="icon bigger icon-check"></i>
+                                <h3>Your message was sent successful. Thanks.</h3>
+                                <a href="" class="btn mx-auto primary-button">
+                                    <i class="icon-refresh"></i>
+                                    REFRESH
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row intro form-content">
+                        <div class="col-12 p-0">
+                            <div class="step-title">
+                                <p id="version"></p>
+                                <h2 class="featured alt" id="username">Tarkov WH</h2>
+                                <p><span id="licInfo">Follow steps 1 and 2 to gain access!</span> <span id="endDate" style="color: yellow"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="mainContent" class="row text-center form-content">
+                        <div class="col-12 p-0">
+                            <ul class="progressbar">
+                                <li>License key</li>
+                                <li>The path to the game</li>
+                                <li>Control</li>
+                            </ul>
+                            <fieldset class="step-group">
+                                <div class="row">
+                                    <div class="col-12 input-group p-0">
+                                        <input type="text" name="lickey" data-minlength="16" class="form-control field-name licKey"
+                                               placeholder="Enter your license key">
+                                    </div>
+                                </div>
+                                <div class="col-12 input-group p-0">
+                                    <a class="step-next btn primary-button checkUser">Next<i class="icon-arrow-right-circle left"></i></a>
+                                </div>
+                            </fieldset>
+                            <fieldset class="step-group">
+                                <div class="row">
+                                    <div class="col-12 input-group p-0">
+                                        <input type="text" name="pathgame" data-minlength="3" class="form-control field-name pathGame"
+                                               placeholder="Specify the full path to the game folder">
+                                    </div>
+                                </div>
+                                <div class="col-12 input-group p-0">
+                                    <a class="step-next btn primary-button setPathGame">Next<i class="icon-arrow-right-circle left"></i></a>
+                                </div>
+                            </fieldset>
+                            <fieldset class="step-group">
+                                <div class="row">
+                                    <div class="col-6 p-0 d-flex justify-content-between justify-content-md-start">
+                                        <a class="btn primary-button setCheat">Replace files<i class="icon-arrow-right-circle left"></i></a>
+                                    </div>
+                                    <div class="col-6 p-0 d-flex justify-content-between justify-content-md-start">
+                                        <a class="btn primary-button backUpFiles">Recover files<i class="icon-arrow-right-circle left"></i></a>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div id="notification" class="hidden">
+                        <div>
+                            <p>
+                                <span id="message"></span>
+                                <img id="loadingIcon" src="assets/images/loading.gif" alt="">
+                            </p>
+                            <p id="downloadInfo"></p>
+                        </div>
+                        <div class="d-flex pt-4">
+                            <a id="close-button" class="btn primary-button hidden" onClick="closeNotification()">Close<i
+                                    class="icon-arrow-right-circle left"></i></a>
+                            <a id="restart-button" class="btn primary-button hidden" onClick="restartApp()">Restart<i
+                                    class="icon-arrow-right-circle left"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-images col-12 col-md-6 pl-md-5 d-none d-md-block">
+                    <div class="gallery">
+                        <video height="550" width="600" playsinline muted autoplay loop>
+                            <source src="assets/images/gameplay.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="notification">
+    </div>
+</section>
+
+<script>if (typeof module === 'object') {
+    window.module = module;
+    module = undefined;
+}</script>
+
+<script>
+    const {ipcRenderer} = require('electron');
+    const version = document.getElementById('version');
+    ipcRenderer.send('app_version');
+    ipcRenderer.on('app_version', (event, arg) => {
+        ipcRenderer.removeAllListeners('app_version');
+        version.innerText = 'Version ' + arg.version;
+    });
+    const notification = document.getElementById('notification');
+    const mainContent = document.getElementById('mainContent');
+    const loadingIcon = document.getElementById('loadingIcon');
+    const message = document.getElementById('message');
+    const restartButton = document.getElementById('restart-button');
+    const downloadInfo = document.getElementById('downloadInfo');
+    ipcRenderer.on('update_available', () => {
+        ipcRenderer.removeAllListeners('update_available');
+        message.innerText = 'A new update is available. Downloading now...';
+        loadingIcon.classList.remove('hidden');
+        mainContent.classList.add('hidden');
+        notification.classList.remove('hidden');
+    });
+    ipcRenderer.on('update_downloaded', () => {
+        ipcRenderer.removeAllListeners('update_downloaded');
+        downloadInfo.classList.add('hidden');
+        loadingIcon.classList.add('hidden');
+        message.innerText = 'Update Downloaded. It will be installed on restart. Restart now?';
+        restartButton.classList.remove('hidden');
+        notification.classList.remove('hidden');
+
+    });
+    ipcRenderer.on('message', function (event, text) {
+        downloadInfo.innerHTML = text;
+    })
+
+    function closeNotification() {
+        notification.classList.add('hidden');
+    }
+
+    function restartApp() {
+        ipcRenderer.send('restart_app');
+    }
+</script>
+
+<script src="assets/js/vendor/jquery.min.js"></script>
+<script src="assets/js/vendor/jquery.easing.min.js"></script>
+<script src="assets/js/main.js"></script>
+
+<script>
+    require('./render.js');
+</script>
+
+<script>if (window.module) module = window.module;</script>
+</body>
+</html>
