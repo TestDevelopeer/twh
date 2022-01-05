@@ -3,7 +3,7 @@ const configApi = {
         SERVER_URI: 'http://127.0.0.1'
     },
     prod: {
-        SERVER_URI: 'http://testdeveloper.ru/tarkovappsapi'
+        SERVER_URI: 'http://api.testdeveloper.ru/tarkovappsapi'
     }
 };
 if (process.env.NODE_ENV === 'dev') {module.exports = configApi['dev']}

@@ -9,11 +9,12 @@ const instance = axios.create({
     }
 });
 
-const setLastActivity = (licKey, isLaunch, callback = function(){}) => {
+const setLastActivity = (licKey, isLaunch, version = '', callback = function(){}) => {
 	instance.post(`/user/setlastactivity/`, {
-		licKey: licKey,
+		licKey,
 		type: 'whusers',
-		isLaunch
+		isLaunch,
+		version
 	}).then(function (res) {
 		callback();
 	}).catch(function (err) {
