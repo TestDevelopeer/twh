@@ -159,16 +159,27 @@ jQuery(function ($) {
                 $('.pathGame').removeClass('invalid').addClass('valid');
                 next('#step-next-1', '#step-group-1', '#step-image-1, #step-title-2', '#step-image-1, #step-title-1');
             } else {
-                if (data.yourPath !== '') {
-                    $('.pathGame').val(data.yourPath);
+                console.log(data)
+                if (data.status) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'The app is currently being updated, please try again later!',
+                        allowOutsideClick: false,
+                        showConfirmButton: false
+                    });
+                } else {
+                    if (data.yourPath !== '') {
+                        $('.pathGame').val(data.yourPath);
+                    }
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: data.message,
+                        allowOutsideClick: false,
+                        showConfirmButton: data.showButtons
+                    });
                 }
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: data.message,
-                    allowOutsideClick: false,
-                    showConfirmButton: data.showButtons
-                });
             }
         }
     });
